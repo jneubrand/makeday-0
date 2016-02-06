@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>#Makeday</title>
+        <style>
+            html {
+                overflow: hidden !important;
+            }
+            body {
+                margin: 0;
+                display: flex;
+                flex-flow: row;
+                justify-content: center;
+                overflow: hidden;
+            }
+            .background {
+                min-width: 2000px;
+                max-width: 2000px;
+                height: 100vh;
+                display: flex;
+                justify-content: space-around;
+                align-content: flex-end;
+                align-items: center;
+                flex-flow: column;
+                overflow: hidden;
+                overflow-x: scroll;
+                background-size: 2000px auto;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            .background#mountain {
+                background-image: url(bg.jpg);
+                background-color: #131711;
+            }
+            .background#night-comet {
+                background-image: url(night_comet_recrop.jpg);
+                background-color: #131711;
+                background-position: center center;
+            }
+            .background .loader {
+                /*background-color: rgba(255, 255, 255, 0.5);*/
+                align-self: center;
+            }
+            .loader {
+                height: 300px;
+                width: 2000px;
+            }
+            .outline {
+                stroke: white;
+                fill: transparent;
+            }
+            .loader:hover .mask {
+                opacity: 1;
+                transition: width 1s cubic-bezier(.6, .2, .8, .4),
+                   stroke-width 0.5s cubic-bezier(.6, .2, .8, .4),
+                        opacity 0.5s cubic-bezier(.6, .2, .8, .4);
+            }
+            .mask {
+                overflow: hidden;
+                width: 0;
+                stroke-width: 2;
+                opacity: 1;
+                transition: width 1s cubic-bezier(.6, .2, .8, .4),
+                     stroke-width 1s cubic-bezier(.6, .2, .8, .4),
+                        opacity 0.5s cubic-bezier(.6, .2, .8, .4);
+            }
+            .loader:hover .mask
+            /*,.mask*/
+            {
+                width: 2000px;
+                stroke-width: 6;
+                transition: width 1s cubic-bezier(.2, .6, .4, .8),
+                   stroke-width 0.5s cubic-bezier(.2, .6, .4, .8);
+            }
+            .mask svg {
+                margin-top: -1px;
+            }
+            .hider.black {
+                stroke: black;
+                fill: transparent;
+            }
+        </style>
+        <script src="http://localhost:35729/livereload.js"></script>
+    </head>
+    <body>
+        <div class="background" id="mountain">
+            <div class="loader">
+                <div class="mask">
+                    <svg width="2000" height="400">
+                        <path class="outline" d="M0 190
+                                                       L820 190
+                                                       L870 188
+                                                       L900 183
+                                                       L920 180
+                                                       L930 175
+                                                       L940 175
+                                                       L950 173
+                                                       L960 167
+                                                       L975 160
+                                                       L990 155
+                                                       L1000 153
+                                                       L1010 154
+                                                       L1020 153
+                                                       L1028 156
+                                                       L1035 154
+                                                       L1040 153
+                                                       L1050 153
+                                                       L1070 167
+                                                       L1080 170
+                                                       L1090 174
+                                                       L1110 180
+                                                       L1117 176
+                                                       L1122 170
+                                                       L1126 169
+                                                       L1130 170
+                                                       L1132 173
+                                                       L1136 171
+                                                       L1140 175
+                                                       L1150 181
+                                                       L1153 179
+                                                       L1158 182
+                                                       L1165 184
+                                                       L1180 188
+                                                       L1190 190
+                                                       L2000 190" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <!--<div class="background" id="night-comet">
+            <div class="loader">
+                <div class="mask">
+                    <svg width="2000" height="400">
+                        <path class="outline" d="M-10 200
+                                                       L10 180
+                                                       L20 188
+                                                       L30 180
+                                                       L40 190
+                                                       L70 185
+                                                       L90 175
+                                                       L110 168
+                                                       L135 156
+                                                       L145 158
+                                                       L155 156
+                                                       L168 177
+                                                       L185 175
+                                                       L198 182
+                                                       L206 175
+                                                       L216 183
+                                                       L226 180
+                                                       L245 190
+                                                       L260 195
+                                                       L280 198
+                                                       L305 195
+                                                       L315 200
+                                                       L320 190
+                                                       L355 190
+                                                       L370 207
+                                                       L380 212
+                                                       L392 207
+                                                       L401 204
+                                                       L432 183
+                                                       L460 182
+                                                       L490 188
+                                                       L520 204
+                                                       L540 208
+                                                       L560 205
+                                                       L580 210
+                                                       L600 222
+                                                       L623 222
+                                                       L642 232
+                                                       L713 225
+                                                       L730 235
+                                                       L830 222
+                                                       L850 220
+                                                       L870 224
+                                                       L890 235
+                                                       L900 215
+                                                       L920 210
+                                                       L930 205
+                                                       L960 207
+                                                       L980 215
+                                                       L1000 230
+                                                       L1020 260
+                                                       L1035 258
+                                                       L1048 265
+                                                       L1070 250
+                                                       L1080 246
+                                                       L1090 238
+                                                       L1100 233
+                                                       L1140 222
+                                                       L1150 224
+                                                       L1170 224
+                                                       L1200 229
+                                                       L1234 230
+                                                       L1255 225
+                                                       L1270 230
+                                                       L1390 297
+                                                       L1400 297
+                                                       L1420 290
+                                                       L1500 330
+                                                       L1560 360
+                                                       L1570 350
+                                                       L1590 360
+                                                       L1600 367
+                                                       L1618 350
+                                                       L1680 370" />
+                        <path class="black hider" d="M1618 359
+                                                       L1682 371" />
+                        <path class="outline" d="M990  220
+                                                 L1037 198
+                                                 L1045 207
+                                                 L1056 202
+                                                 L1065 209
+                                                 L1140 200
+                                                 L1145 201
+                                                 L1150 204
+                                                 L1173 209
+                                                 L1180 213
+                                                 L1190 208
+                                                 L1200 206
+                                                 L1210 210
+                                                 L1230 208
+                                                 L1243 213
+                                                 L1255 207
+                                                 L1260 215
+                                                 L1266 212
+                                                 L1275 208
+                                                 L1280 210
+                                                 L1310 206
+                                                 L1315 200
+                                                 L1340 204
+                                                 L1350 200
+                                                 L1360 208
+                                                 L1368 204
+                                                 L1372 211
+                                                 L1388 206
+                                                 L1395 215
+                                                 L1400 213
+                                                 L1405 216
+                                                 L1410 214
+                                                 L1420 214
+                                                 L1423 218
+                                                 L1426 215
+                                                 L1444 222
+                                                 L1446 220
+                                                 L1466 230
+                                                 L1470 227
+                                                 L1490 226
+                                                 L1497 230
+                                                 L1515 223
+                                                 L1530 215
+                                                 L1540 220
+                                                 L1549 221
+                                                 L1554 218
+                                                 L1570 212
+                                                 L1590 220
+                                                 L1610 223
+                                                 L1625 217
+                                                 L1634 215
+                                                 L1663 202
+                                                 L1665 201
+                                                 L1672 204
+                                                 L1679 201
+                                                 L1720 200
+                                                 L1742 210
+                                                 L1765 218
+                                                 L1780 208
+                                                 L1804 203
+                                                 L1829 194
+                                                 L1847 203
+                                                 L1858 200
+                                                 L1866 196
+                                                 L1881 200
+                                                 L1887 210
+                                                 L1902 202
+                                                 L1909 208
+                                                 L1908 200
+                                                 L1922 200
+                                                 L1950 186
+                                                 L1962 177
+                                                 L1972 174
+                                                 L1979 170
+                                                 L1990 160
+                                                 L2000 155" />
+                    </svg>
+                </div>
+            </div>
+        </div>-->
+    </body>
+</html>
